@@ -1,4 +1,4 @@
-# RickyWeather)
+# RickyWeather
 
 Una semplice app meteo per Android, basata su software libero. Ottiene i dati da [OpenWeatherMap](https://openweathermap.org/), attraverso la sua API pubblica.
 
