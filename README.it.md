@@ -1,13 +1,7 @@
-# Forecastie
-
-[![Release](https://img.shields.io/github/release/martykan/forecastie.png)](https://github.com/martykan/forecastie/releases)
-[![Circle CI](https://circleci.com/gh/martykan/forecastie/tree/master.png)](https://circleci.com/gh/martykan/forecastie/tree/master)
-[![Android CI](https://github.com/martykan/forecastie/workflows/Android%20CI/badge.svg)](https://github.com/martykan/forecastie/releases=)
+# RickyWeather)
 
 Una semplice app meteo per Android, basata su software libero. Ottiene i dati da [OpenWeatherMap](https://openweathermap.org/), attraverso la sua API pubblica.
 
-[<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Get_it_on_F-Droid.svg/200px-Get_it_on_F-Droid.svg.png" style="float: left; padding-right: 10px;">](https://f-droid.org/repository/browse/?fdid=cz.martykan.forecastie)
-[<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/200px-Google_Play_Store_badge_EN.svg.png" style="float: left; padding-right: 10px;" height="70">](https://play.google.com/store/apps/details?id=com.casticalabs.forecastie)
 
 ## Caratteristiche
 * Design semplice
@@ -26,7 +20,7 @@ Una semplice app meteo per Android, basata su software libero. Ottiene i dati da
 
 
 ## Contributi
-Se hai un'idea o un problema, non esitare a contattarci attraverso la pagina dei bachi. Ogni contributo è benvenuto. Vedere [Contributi](https://github.com/martykan/forecastie/blob/master/CONTRIBUTING.md) per maggiori informazioni.
+Se hai un'idea o un problema, non esitare a contattarci.
 
 Prego notare che il progetto è rilasciato attraverso un Codice di Condotta per i Contribuenti. Partecipando al progetto, accetti di sottostare ai suoi termini.
 
