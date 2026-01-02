@@ -15,7 +15,7 @@
     <!-- Forecast cards -->
     <string name="today">Oggi</string>
     <string name="tomorrow">Domani</string>
-    <string name="later">Dopo</string>
+    <string name="later">Altri Giorni</string>
 
     <!-- Main activity headings -->
     <string name="wind">Vento</string>
