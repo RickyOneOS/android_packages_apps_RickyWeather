@@ -35,8 +35,10 @@ public class ClassicTimeWidgetProvider extends AbstractWidgetProvider {
             setTheme(context, remoteViews);
 
             Intent intent = new Intent(context, AlarmReceiver.class);
-            PendingIntent pendingIntent = PendingIntent.getBroadcast(context,
-                    0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+            PendingIntent pendingIntent = android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M
+                ? PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE)
+                : PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
             remoteViews.setOnClickPendingIntent(R.id.widgetButtonRefresh, pendingIntent);
 
             SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
@@ -49,17 +51,22 @@ public class ClassicTimeWidgetProvider extends AbstractWidgetProvider {
 
             DateFormat timeFormat = android.text.format.DateFormat.getTimeFormat(context);
             String defaultDateFormat = context.getResources().getStringArray(R.array.dateFormatsValues)[0];
-            String dateFormat = sp.getString("dateFormat", defaultDateFormat);
-            dateFormat = dateFormat.substring(0, dateFormat.indexOf("-")-1);
-            if ("custom".equals(dateFormat)) {
-                dateFormat = sp.getString("dateFormatCustom", defaultDateFormat);
+            String simpleDateFormat = sp.getString("dateFormat", defaultDateFormat);
+            if ("custom".equals(simpleDateFormat)) {
+                simpleDateFormat = sp.getString("dateFormatCustom", defaultDateFormat);
             }
             String dateString;
             try {
-                SimpleDateFormat resultFormat = new SimpleDateFormat(dateFormat);
-                dateString = resultFormat.format(new Date());
-            } catch (IllegalArgumentException e) {
-                dateString = context.getResources().getString(R.string.error_dateFormat);
+                simpleDateFormat = simpleDateFormat.substring(0, simpleDateFormat.indexOf("-") - 1);
+                try {
+                    SimpleDateFormat resultFormat = new SimpleDateFormat(simpleDateFormat);
+                    dateString = resultFormat.format(new Date());
+                } catch (IllegalArgumentException e) {
+                    dateString = context.getResources().getString(R.string.error_dateFormat);
+                }
+            } catch (StringIndexOutOfBoundsException e) {
+                DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.LONG);
+                dateString = dateFormat.format(new Date());
             }
 
             remoteViews.setTextViewText(R.id.time, timeFormat.format(new Date()));
@@ -118,7 +125,7 @@ public class ClassicTimeWidgetProvider extends AbstractWidgetProvider {
     private static PendingIntent getTimeIntent(Context context) {
         Intent intent = new Intent(context, TimeWidgetProvider.class);
         intent.setAction(ACTION_UPDATE_TIME);
-        return PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
+        return PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT | PendingIntent.FLAG_IMMUTABLE);
     }
     */
 

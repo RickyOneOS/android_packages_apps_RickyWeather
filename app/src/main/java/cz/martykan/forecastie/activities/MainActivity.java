@@ -132,14 +132,13 @@ public class MainActivity extends BaseActivity implements LocationListener {
         firstRun = prefs.getBoolean("firstRun", true);
 
         widgetTransparent = prefs.getBoolean("transparentWidget", false);
-        //noinspection ConstantConditions
         setTheme(theme = UI.getTheme(prefs.getString("theme", "fresh")));
-        boolean darkTheme = super.darkTheme;
-        boolean blackTheme = super.blackTheme;
         formatting = new Formatting(this);
 
         // Initiate activity
         super.onCreate(savedInstanceState);
+        boolean darkTheme = this.darkTheme;
+        boolean blackTheme = this.blackTheme;
         setContentView(R.layout.activity_scrolling);
         appView = findViewById(R.id.viewApp);
         swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout);
@@ -737,7 +736,6 @@ public class MainActivity extends BaseActivity implements LocationListener {
 
         @Override
         protected void onPreExecute() {
-            loading = 0;
             super.onPreExecute();
         }
 
@@ -903,7 +901,6 @@ public class MainActivity extends BaseActivity implements LocationListener {
 
         @Override
         protected void onPreExecute() {
-            loading = 0;
             super.onPreExecute();
         }
 
