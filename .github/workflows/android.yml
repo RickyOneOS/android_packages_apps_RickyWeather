@@ -13,16 +13,16 @@ jobs:
         java-version: '17'
     - name: Build with Gradle
       run: |
-        ./gradlew build
-        cp /home/runner/work/forecastie/forecastie/app/build/outputs/apk/release/app-release-unsigned.apk /home/runner/work/forecastie/forecastie/forecastie.apk
+        ./gradlew assembleRelease
+        cp /home/runner/work/forecastie/forecastie/app/build/outputs/apk/release/*.apk RickyWeather.apk
         pwd > file_list.txt
         ls -lR >> file_list.txt
 
     - name: Upload .apk
       uses: actions/upload-artifact@v4
       with:
-        name: Forecastie
-        path: forecastie.apk
+        name: RickyWeather
+        path: rickyweather.apk
 
   release:
     runs-on: ubuntu-latest
