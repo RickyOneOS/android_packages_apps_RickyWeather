@@ -14,7 +14,7 @@ jobs:
     - name: Build with Gradle
       run: |
         ./gradlew assembleRelease
-        cp /home/runner/work/forecastie/forecastie/app/build/outputs/apk/release/*.apk RickyWeather.apk
+        cp app/build/outputs/apk/release/*.apk RickyWeather.apk
         pwd > file_list.txt
         ls -lR >> file_list.txt
 
