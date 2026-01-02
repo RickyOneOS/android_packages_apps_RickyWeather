@@ -6,11 +6,11 @@ android {
     namespace = "cz.martykan.forecastie"
     compileSdkVersion 36
     defaultConfig {
-        applicationId "cz.martykan.forecastie"
+        applicationId "com.rickyweather.rickyone"
         minSdkVersion 19
         targetSdkVersion 36
-        versionCode 75
-        versionName "1.23"
+        versionCode 1
+        versionName "1.0-beta1"
     }
 
     lintOptions {
