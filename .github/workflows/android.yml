@@ -13,7 +13,7 @@ jobs:
         java-version: '17'
     - name: Build with Gradle
       run: |
-        ./gradlew assembleRelease
+        ./gradlew assembleDebug
         cp /home/runner/work/android_packages_apps_RickyWeather/android_packages_apps_RickyWeather/app/build/outputs/apk/release/*.apk RickyWeather.apk
         pwd > file_list.txt
         ls -lR >> file_list.txt
