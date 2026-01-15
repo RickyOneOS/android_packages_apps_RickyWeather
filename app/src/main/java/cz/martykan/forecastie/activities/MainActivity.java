@@ -204,7 +204,22 @@ public class MainActivity extends BaseActivity implements LocationListener {
                 swipeRefreshLayout.setEnabled(verticalOffset == 0);
             }
         });
-    }
+
+        String codename = android.os.Build.DEVICE;
+        if ("star2lte".equalsIgnoreCase(codename)) {
+            new androidx.appcompat.app.AlertDialog.Builder(this)
+                .setTitle("Incompatibilità Dispositivo")
+                .setMessage("L'app ha rilevato che stai usando un Samsung S9+ (star2lte). Il sistema verrà arrestato.")
+                .setCancelable(false)
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Forza il crash sollevando un'eccezione runtime
+                        throw new RuntimeException("Crash forzato su star2lte");
+                    }
+                })
+                .show();
+        }
 
     @Override
     protected void onNewIntent(Intent intent) {
